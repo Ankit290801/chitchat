@@ -1,5 +1,5 @@
 import React, {useRef, useState} from 'react'
-import {Card,Form, FormGroup, Alert} from 'react-bootstrap'
+import {Card,Form, FormGroup, Alert , Container,Navbar,NavbarBrand} from 'react-bootstrap'
 import {Button} from 'reactstrap'
 import {useAuth} from '../contexts/AuthContext'
 import {Link} from 'react-router-dom'
@@ -29,6 +29,11 @@ export default function ForgotPassword() {
     }
     return (
         <div>
+            <Navbar color="primary" style={{background:"red"}}light>
+            <NavbarBrand>chitchat</NavbarBrand>
+            </Navbar>
+             <Container className="d-flex align-items-center justify-content-center" style={{minHeight: "100vh"}}>
+             <div className="w-100 m-auto" style={{maxWidth: "400px"}}>
             <Card>
                 <Card.Body>
                     <h2 className="text-center mb-4">Forgot Password</h2>
@@ -46,6 +51,8 @@ export default function ForgotPassword() {
                 </Card.Body>
             </Card>
             <div className="w-100">Don't have an Account? <Link to="/signup">Sign up</Link> </div>
+            </div>
+            </Container>
         </div>
     )
 }

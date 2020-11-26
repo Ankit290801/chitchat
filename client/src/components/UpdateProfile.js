@@ -1,5 +1,5 @@
 import React, {useRef, useState} from 'react'
-import {Card,Form, FormGroup, Alert} from 'react-bootstrap'
+import {Card,Form, FormGroup, Alert , Container,Navbar,NavbarBrand} from 'react-bootstrap'
 import { Link, useHistory } from 'react-router-dom'
 import {Button} from 'reactstrap'
 import {useAuth} from '../contexts/AuthContext'
@@ -41,6 +41,11 @@ export default function UpdateProfile() {
     }
     return (
         <div>
+            <Navbar color="primary" style={{background:"red"}}light>
+            <NavbarBrand>chitchat</NavbarBrand>
+            </Navbar>
+             <Container className="d-flex align-items-center justify-content-center" style={{minHeight: "100vh"}}>
+             <div className="w-100 m-auto" style={{maxWidth: "400px"}}>
             <Card>
                 <Card.Body>
                     <h2 className="text-center mb-4">Update Profile</h2>
@@ -68,6 +73,8 @@ export default function UpdateProfile() {
                 </Card.Body>
             </Card>
             <div className="w-100 text-center"><Link to="/">Cancel</Link></div>
+            </div>
+            </Container>
         </div>
     )
 }
