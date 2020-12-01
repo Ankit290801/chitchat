@@ -1,29 +1,12 @@
-import React, {useState , useRef} from 'react'
+import React from 'react'
 import { Button, Card, Alert ,Container,Navbar,NavbarBrand } from 'react-bootstrap'
-import { Link, useHistory } from 'react-router-dom'
-import {useAuth} from '../contexts/AuthContext'
+import { Link } from 'react-router-dom'
+
 export default function Dashboard() {
 
-const [name,changeName]=useState("")
-const [error, setError] = useState("")
-const {currentUser, logout} = useAuth()
-const history = useHistory()
-async function handleLogout(){
-    setError('')
-
-    try{
-        await logout()
-        
-        history.push("/login")
-    }
-    catch{
-        setError("Failed to log out")
-    }
-}
-
-function sendData()
+{/*function sendData()
 {
-    fetch("/dashboard",{
+     fetch("/dashboard",{
         method:"get",
         headers:{
             "content-type":"application/json"
@@ -33,13 +16,13 @@ function sendData()
         console.log(data);
         changeName(data.name);
         //setdata(data); 
-    })
-}
+    })   
+}  */}
     return (
        
         <>
          <div>
-             {sendData()}
+            {/* {sendData()}  */}
             <Navbar color="primary" style={{background:"red"}}light>
             <NavbarBrand>chitchat</NavbarBrand>
             </Navbar>
@@ -48,13 +31,13 @@ function sendData()
             <Card>
                 <Card.Body>
                     <h2 className="text-center mb-4">Profile</h2>
-                    {error && <Alert variant = "danger">{error}</Alert>}
-                    <strong>Email: </strong>{currentUser.email} <br></br><strong>Name</strong>{name} 
+                    <Alert variant = "danger"></Alert>
+                    <strong>Email: </strong> <br></br><strong>Name</strong> 
                     <Link to="/update-profile" className="btn btn-primary w-100 mt-3">Update Profile</Link>
                 </Card.Body>
             </Card>
             <div className="w-100 text-center mt-2">
-                <Button variant="link" onClick={handleLogout} >Log Out</Button>
+                <Button variant="link">Log Out</Button>
             </div>
             </div>
             </Container>
