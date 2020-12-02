@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.ld{
+    background-image: url('../src/img/ldbg.jpeg');
+    height: 100vh;
+    max-width: 100%;
+    opacity: 0.6;
+    background-repeat: no-repeat;
+    background-position: fixed;
+    background-size: cover;
+}
+
+.signupCard{
+    background: hotpink;
+}
