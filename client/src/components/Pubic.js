@@ -1,27 +1,17 @@
 import React from 'react'
 import { Button, Card, Alert ,Container,Navbar,NavbarBrand,NavLink } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom' 
-import PrivateRoute from '../components/PrivateRoute'
-import Header from './Header';
-import "../components/fontawesome/index"
+import "./fontawesome/index"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Public from './Pubic'
-import User from './User'
-export default function Dashboard() {
+import Header from './Header';
 
+export default function pubic() {
     return (
-       
-        <>
-         <div style={{background:'#ccc'}}> 
-        <Router>
-       
-        <Switch>
-        <Route  exact path="/user" component={Public} />
-        <Route Path="/public" component={User} />
-        </Switch>
-        </Router>
-            {/* <Container className="d-flex align-items-center justify-content-center" style={{minHeight: "100vh"}}>
+        
+        <div style={{background:'#ccc'}}>
+            <Header />
+            current user
+            <Container className="d-flex align-items-center justify-content-center" style={{minHeight: "100vh"}}>
              <div className="w-100 m-auto" style={{maxWidth: "400px"}}>
             <Card>
                 <Card.Body>
@@ -35,8 +25,7 @@ export default function Dashboard() {
                 <Button variant="link">Log Out</Button>
             </div>
             </div>
-    </Container> */}
+            </Container>
         </div>
-        </>
     )
 }

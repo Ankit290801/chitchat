@@ -1,17 +1,29 @@
-import React from 'react'
+import {React} from 'react'
 import {Card,Form, FormGroup, Alert,Container,Navbar,NavbarBrand} from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, useHistory,Link } from 'react-router-dom'
 import {Button} from 'reactstrap'
 
+
+
+
 export default function Signup() {
+    const history=useHistory();
+     
+    const sendData=()=> {
+       
+    history.push('/dashboard');   
+    } 
+
 
     return (
-        <div>
-            <Container className="d-flex align-items-center justify-content-center" style={{minHeight: "100vh"}}>
+        <div className="container" >
+            <Button onClick={sendData}>push</Button>
+            <Container className="d-flex align-items-center justify-content-center bg-white" style={{minHeight: "100vh",zIndex:'100'}}>
                 <div className="w-100 m-auto" style={{maxWidth: "400px"}}>
-                    <Card className="signupCard">
+                    <Card className="signupCard shadow-lg">
                         <Card.Body>
                             <h2 className="text-center mb-4">Create an Account</h2>
+                            <hr style={{height:'5px'}} />
                             <Alert variant = "danger"></Alert>
                             <Form >
                                 <FormGroup id="name">
@@ -32,7 +44,7 @@ export default function Signup() {
                                     <Form.Label>Confirm Password</Form.Label>
                                     <Form.Control type="password" required></Form.Control>
                                 </FormGroup>
-                                <Button className="w-100" type="submit" color="primary">Submit</Button>
+                                <Button className="w-100" type="submit" color="primary" onclick={sendData}>Submit</Button>
                             </Form>
                 <div className="w-100">Already have an Account? <Link to="/login">Login</Link></div>
                 </Card.Body>
