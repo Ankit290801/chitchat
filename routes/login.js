@@ -2,42 +2,40 @@ const express=require('express');
 const router=express.Router();
 const mongoose=require('mongoose');
 const User=mongoose.model('Users');
-var email1,password1;
-//router.route('/')
+const jwt=require('jsonwebtoken');
+const bcrypt=require('bcryptjs');
+const {JWT_SECRET}=require('../config');
+const verifyUser=require('../middleware/token')
+
+router.get('/dashboard',verifyUser,(req,res)=>{
+
+    //const {email , password}=req.body;
+    console.log(req.user);
+    res.send("hello there!")
+
+})
+
 router.post('/login',(req,res)=>{
 
     const {email , password}=req.body;
     console.log(email + password);
-    email1=email;password1=password;
-    User.findOne({email:email , password:password})
+    User.findOne({email:email})//, password:bcrypt.hash(password,10)
     .then(saved=>{
         if(saved)
         {
         res.statusCode=200;  
-        res.json(saved);    
+        const token=jwt.sign({_id:saved._id},JWT_SECRET)
+        res.json({success:"user found",token:token});
+
         console.log('found');
 
+        }else{
+            res.statusCode=403;  
+            res.json({error:"sorry not found"});    
+            console.log('not found');
         }
-       
     })
-
 })
-router.get('/dashboard',(req,res)=>{
 
-    //const {email , password}=req.body;
-    console.log(email1 + password1);
-    User.findOne({email:email1 , password:password1})
-    .then(saved=>{
-        if(saved)
-        {
-        res.statusCode=200;  
-        res.json(saved);    
-        console.log(' res found');
-
-        }
-       
-    })
-
-})
 
 module.exports=router;

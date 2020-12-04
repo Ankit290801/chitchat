@@ -7,7 +7,7 @@ import Header from './Header';
 import logo from '../img/logo.jpeg'
 
 
-export default function Dashboard() {
+export default function user() {
     return (
         <div className="" style={{background:'#ccc',minHeight:"100vh"}}>
              <Header />
