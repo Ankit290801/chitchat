@@ -1,42 +1,54 @@
 import React from 'react'
-import { Button, Card, Alert ,Container,Navbar,NavbarBrand,NavLink } from 'react-bootstrap'
+import {  Button, Card, Alert ,Container,Navbar,NavbarBrand,NavLink } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom' 
-import PrivateRoute from '../components/PrivateRoute'
-import Header from './Header';
-import "../components/fontawesome/index"
+import "./fontawesome/index"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Public from './Pubic'
-import User from './User'
-export default function Dashboard() {
+import Header from './Header';
+import logo from '../img/logo.jpeg'
 
+
+export default function Dashboard() {
     return (
-       
-        <>
-         <div style={{background:'#ccc'}}> 
-        <Router>
-       
-        <Switch>
-        <Route  exact path="/user" component={Public} />
-        <Route Path="/public" component={User} />
-        </Switch>
-        </Router>
-            {/* <Container className="d-flex align-items-center justify-content-center" style={{minHeight: "100vh"}}>
-             <div className="w-100 m-auto" style={{maxWidth: "400px"}}>
-            <Card>
-                <Card.Body>
-                    <h2 className="text-center mb-4">Profile</h2>
-                    <Alert variant = "danger"></Alert>
-                    <strong>Email: </strong> <br></br><strong>Name</strong> 
-                    <Link to="/update-profile" className="btn btn-primary w-100 mt-3">Update Profile</Link>
-                </Card.Body>
-            </Card>
-            <div className="w-100 text-center mt-2">
-                <Button variant="link">Log Out</Button>
-            </div>
-            </div>
-    </Container> */}
+        <div className="" style={{background:'#ccc',minHeight:"100vh"}}>
+             <Header />
+            <container className="container " style={{}}>
+            <Card className="container" style={{ width: '100%' }}>
+  <Card.Img variant="top" src={logo}  style={{ width: '600px',height:'400px',margin:'auto' }}/>
+  <Card.Body>
+    <Card.Title>Card Title</Card.Title>
+    <Card.Text>
+      Some quick example text to build on the card title and make up the bulk of
+      the card's content.
+    </Card.Text>
+    <Button variant="primary">Go somewhere</Button>
+  </Card.Body>
+</Card>
+
+<Card  className="container my-4" style={{ width: '100%' }}>
+  <Card.Img variant="top" src={logo}  style={{ width: '600px',height:'400px',margin:'auto' }}/>
+  <Card.Body>
+    <Card.Title>Card Title</Card.Title>
+    <Card.Text>
+      Some quick example text to build on the card title and make up the bulk of
+      the card's content.
+    </Card.Text>
+    <Button variant="primary">Go somewhere</Button>
+  </Card.Body>
+</Card>
+
+<Card  className="container" style={{ width: '100%' }}>
+  <Card.Img variant="top" src={logo}  style={{ width: '600px',height:'400px',margin:'auto' }}/>
+  <Card.Body>
+    <Card.Title>Card Title</Card.Title>
+    <Card.Text>
+      Some quick example text to build on the card title and make up the bulk of
+      the card's content.
+    </Card.Text>
+    <Button variant="primary">Go somewhere</Button>
+  </Card.Body>
+</Card>
+
+            </container>
         </div>
-        </>
     )
 }

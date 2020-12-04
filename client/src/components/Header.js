@@ -13,11 +13,11 @@ export default function Header() {
             </Navbar>
             <Navbar color="primary" className="shadow-md" style={{background:"#fff"}}light>
             <div className="col d-flex justify-content-between">
-                <Link to="/public"><div><FontAwesomeIcon  className="icon" icon="home" style={{height:'40px',width:'40px',color:'red'}} /></div>
+                <Link to="dashboard"><div><FontAwesomeIcon  className="icon" icon="home" style={{height:'40px',width:'40px',color:'red'}} /></div>
                 </Link>
-                <Link to="/public"><div><FontAwesomeIcon  className="icon" icon="bookmark" style={{height:'40px',width:'40px',color:'red'}} /></div>
+                <Link to="public"><div><FontAwesomeIcon  className="icon" icon="bookmark" style={{height:'40px',width:'40px',color:'red'}} /></div>
                 </Link>
-                <Link to="/public"><div><FontAwesomeIcon  className="icon" icon="bell" style={{height:'40px',width:'40px',color:'red'}} /></div>
+                <Link to="/notification"><div><FontAwesomeIcon  className="icon" icon="bell" style={{height:'40px',width:'40px',color:'red'}} /></div>
                 </Link>
                 <Link to="/user"><div><FontAwesomeIcon  className="icon" icon="user" style={{height:'40px',width:'40px',color:'red'}} /></div>
                 </Link>
