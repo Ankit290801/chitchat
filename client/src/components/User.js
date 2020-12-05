@@ -1,16 +1,16 @@
 import React from 'react'
 import {  Button, Card, Alert ,Container,Navbar,NavbarBrand,NavLink } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import "./fontawesome/index"
+// import "./fontawesome/index"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Header from './Header';
+//import Header from './Header';
 import logo from '../img/logo.jpeg'
 
 
 export default function user() {
     return (
         <div className="" style={{background:'#ccc',minHeight:"100vh"}}>
-             <Header />
+             {/* <Header /> */}
             <container className="container " style={{}}>
             <Card className="container" style={{ width: '100%' }}>
   <Card.Img variant="top" src={logo}  style={{ width: '600px',height:'400px',margin:'auto' }}/>
