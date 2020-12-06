@@ -7,9 +7,6 @@ export default function UpdateProfile() {
     
     return (
         <div>
-            <Navbar color="primary" style={{background:"red"}}light>
-            <NavbarBrand>chitchat</NavbarBrand>
-            </Navbar>
              <Container className="d-flex align-items-center justify-content-center" style={{minHeight: "100vh"}}>
              <div className="w-100 m-auto" style={{maxWidth: "400px"}}>
             <Card>
