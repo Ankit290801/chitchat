@@ -11,7 +11,7 @@ export default function Signup() {
      
     const sendData=()=> {
        
-    history.push('/dashboard');   
+    history.push('/home');   
     } 
 
 
