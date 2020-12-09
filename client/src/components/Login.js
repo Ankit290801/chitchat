@@ -1,10 +1,41 @@
-import { React , useHistory } from 'react'
+import { React , useState } from 'react'
 import {Card,Form, FormGroup, Container,Navbar,NavbarBrand} from 'react-bootstrap'
 import {Button} from 'reactstrap'
 import {Link} from 'react-router-dom'
 
-export default function Login() {
+ function Login() {
     
+    const [email,useemail]=useState("")
+    const [password,usepassword]=useState("")
+
+    const RegisterData=(e)=>{
+        e.preventDefault();
+        console.log( password + email);
+        // fetch("http://localhost:5001/signup",{
+        // method:"post",
+        // headers:{
+        //     "content-type":"application/json"
+        // },
+        // body:JSON.stringify({
+        //     name:name,
+        //     password:password,
+        //     email:email,
+        //     cpassword:cpassword
+        // })
+        // })
+        // .then(res=>res.json())
+        // .then(data=>{
+        //     console.log(data);
+        //     setmessage(data.success);
+        //     //history.push("/login");
+        // })
+        // .catch(err=>{
+        //     console.log(err);
+        //     setmessage("check your network");
+        // })
+    }
+
+
     return (
         <div>
             <Navbar color="primary" style={{background:"red"}}light>
@@ -15,16 +46,16 @@ export default function Login() {
             <Card>
                 <Card.Body>
                     <h2 className="text-center mb-4">Log In</h2>
-                    <Form>
-                        <FormGroup id="email">
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control type="email" required></Form.Control>
-                        </FormGroup>
+                    <Form onSubmit={RegisterData}>
+                    <FormGroup id="email">
+                                    <Form.Label>Email</Form.Label>
+                                    <Form.Control type="email" value={email} onChange={(e)=>useemail(e.target.value)} ></Form.Control>
+                                </FormGroup>
 
-                        <FormGroup id="password">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" required></Form.Control>
-                        </FormGroup>
+                                <FormGroup id="password">
+                                    <Form.Label>Password</Form.Label>
+                                    <Form.Control type="password" value={password} onChange={(e)=>usepassword(e.target.value)} ></Form.Control>
+                                </FormGroup>
 
                         
                         <Button className="w-100" type="submit" color="primary">Log In</Button>
@@ -38,3 +69,5 @@ export default function Login() {
         </div>
     )
 }
+
+export default Login;
