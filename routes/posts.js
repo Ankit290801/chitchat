@@ -5,7 +5,7 @@ const Posts=mongoose.model('Posts');
 const verifyUser=require('../middleware/token')
 
 
-router.get('/posts',(req,res)=>{
+router.get('/posts',verifyUser,(req,res)=>{
     Posts.find()
     .populate("postUser","id name")
     .then(post=>{
@@ -15,11 +15,14 @@ router.get('/posts',(req,res)=>{
 })
 router.post('/create',verifyUser,(req,res)=>{
 
-    const{title,body}=req.body;
+    const{title,body,image}=req.body;
+
+    console.log(title,body,image);
 
     const post=new Posts({
         title:title,
         body:body,
+        image:image,
         postUser:req.user
     })
     post.save()

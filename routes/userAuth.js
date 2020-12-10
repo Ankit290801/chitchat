@@ -17,8 +17,17 @@ User.findOne({email:req.body.email})
         return (res.json({error:"user already exits"}));
     }
     else
-    {const {name,email,password}=req.body;
-        bcrypt.hash(password,10)
+    {const {name,email,password,cpassword}=req.body;
+    if(!name || !password || !email)
+    {
+        return (res.json({success:"fill all the fields"}))
+        console.log("saved not user");
+    }else
+    if(password !== cpassword)
+    {
+        return (res.json({success:"pasword not validated"}))
+    } else  
+    {bcrypt.hash(password,10)
         .then(passcode=>{
         const user=new User({
                 name:name,
@@ -32,7 +41,7 @@ User.findOne({email:req.body.email})
                 console.log("saved user");
             })
         })
-       
+    }
     }
 })
 .catch(err=>{

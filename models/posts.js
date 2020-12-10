@@ -13,7 +13,7 @@ body:{
 image:{
     type:String,
     required:false,
-    default:'no image'
+  // default:'no image'
 },
 postUser:{
     type:ObjectId,

@@ -19,19 +19,20 @@ router.post('/login',(req,res)=>{
 
     const {email , password}=req.body;
     console.log(email + password);
+    
     User.findOne({email:email})//, password:bcrypt.hash(password,10)
     .then(saved=>{
         if(saved)
         {
         res.statusCode=200;  
         const token=jwt.sign({_id:saved._id},JWT_SECRET)
-        res.json({success:"user found",token:token});
+        res.json({success:"user found",token:token,user:{saved}});
 
         console.log('found');
 
         }else{
             res.statusCode=403;  
-            res.json({error:"sorry not found"});    
+            res.json({err:"sorry not found"});    
             console.log('not found');
         }
     })
