@@ -1,7 +1,7 @@
-import {React,useState,useEffect} from 'react'
+import React, {useState} from 'react'
 import {Card,Form, FormGroup, Alert,Container,Navbar,NavbarBrand} from 'react-bootstrap'
 import { BrowserRouter as Router, Switch, useHistory,Link } from 'react-router-dom'
-import {Button} from 'reactstrap'
+import {Button, Input} from 'reactstrap'
 
 
 
@@ -13,9 +13,7 @@ function Signup() {
     const [cpassword,useconfirmpassword]=useState("")
     const [message,setmessage]=useState("")
     const history=useHistory();
-
-        
-
+    const [show, setShow] = useState(false)
     
     const RegisterData=(e)=>{
         e.preventDefault();
@@ -66,7 +64,13 @@ function Signup() {
 
                                 <FormGroup id="password">
                                     <Form.Label>Password</Form.Label>
-                                    <Form.Control type="password" value={password} onChange={(e)=>usepassword(e.target.value)} ></Form.Control>
+                                    {show ? 
+                                        <Form.Control type="text" value={password} onChange={(e)=>usepassword(e.target.value)} ></Form.Control>
+                                        : <Form.Control type="password" value={password} onChange={(e)=>usepassword(e.target.value)} ></Form.Control>}
+                                </FormGroup>
+
+                                <FormGroup className="ml-4">
+                                    <Input type = "checkbox" onClick={() => {setShow(!show)}}/>Show Password
                                 </FormGroup>
 
                                 <FormGroup id="password-confirm">

@@ -1,19 +1,24 @@
 import {React,useState , useEffect} from 'react'
-import {Card, Button, Container} from 'react-bootstrap'
+import {Card, Button, Container, Media} from 'react-bootstrap'
 import './fontawesome/index'
 import Status from './Post'
 import logo from '../img/logo.jpeg'
+import userpicdemo from '../img/userpicdemo.png'
 
-function Posts({data})
-{
+function Posts({data}){
 return (
   <div>
-      <Card className="container" style={{ width: '100%' }}>
-   
-   <Card.Body>
-<Card.Title>{data.postUser.name}</Card.Title> 
-   <Card.Img variant="top" src={data.image}  style={{ width: '600px',height:'400px',margin:'auto' }}/>
-
+    <Card className="container mt-4 mb-4" style={{ width: '580px', borderRadius: '20px'}}>
+      <Card.Body>
+        <Card.Title>
+        <Media left href="#">
+          <img width={64} height={64} className="mr-3"src={userpicdemo} alt="User Pic" />
+          <Media.Body>
+            <h5 className="mt-3">{data.postUser.name}</h5>
+          </Media.Body>
+        </Media>
+        </Card.Title> 
+        <Card.Img variant="top" src={data.image}  style={{ width: '500px',height:'400px',margin:'auto' }}/>
      <Card.Text>
        {data.body}
      </Card.Text>
@@ -42,7 +47,7 @@ function Home() {
   },[])
   
   return (
-        <div>
+        <div style={{backgroundColor:"#ccc"}}>
            <Status />
             <Container>
           

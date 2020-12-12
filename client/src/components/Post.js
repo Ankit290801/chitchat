@@ -77,15 +77,15 @@ import {Card, Button, Container} from 'react-bootstrap'
     return (
         <div>
 
-         <Container >
-        <Card className="container my-3" style={{ width: '70%',background:'#fff' }}>
-    <Card.Body>
+         <Container>
+        <Card className="container my-3" style={{ width: '70%',background:'#fff',marginTop: '20px' }}>
+        <Card.Body>
     <textarea type="text" value={body} onChange={(e)=>getBody(e.target.value)} placeholder="write about something" style={{width:'100%',height:'100px'}}></textarea> 
     
     <div className=" container d-flex justify-content-between">
   
    <input  variant="primary" type="file" onChange={(e)=>getMedia(e.target.files[0])}></input>
-    <Button onClick={()=>createPost()} variant="primary">create status</Button>
+    <Button onClick={()=>createPost()} variant="primary">Post</Button>
     </div>
      
     </Card.Body>

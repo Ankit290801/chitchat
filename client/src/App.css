@@ -18,3 +18,15 @@
 .icon:active{
 color:"blue";
 }
+
+.notify-panel{
+    height: 540px;
+    position: fixed;
+    background-color: #f8f8f8;
+    opacity: 0.95;
+    width: 340px;
+    top: 150px;
+    right: 10%;
+    left: 55%;
+    z-index: 100;
+}

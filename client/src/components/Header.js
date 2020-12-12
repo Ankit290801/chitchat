@@ -3,9 +3,12 @@ import "./fontawesome/index"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Navbar,Nav } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
-
+import Notify from './Notify'
+import { useState } from 'react'
 
 export default function Header() {
+    const [show, setShow] = useState(false)
+    console.log(show)
     return (
         <div>
             <Navbar color="primary" style={{background:"#dff9fb"}}light>
@@ -29,8 +32,10 @@ export default function Header() {
                 </div>
                 
                 <div>
-                <Nav.Link as={NavLink} to="/notify">
-                   <FontAwesomeIcon  className="icon" icon="bell" style={{height:'40px',width:'40px',color:'red'}} />
+                <Nav.Link>
+                   <FontAwesomeIcon  className="icon" icon="bell" style={{height:'40px',width:'40px',color:'red'}} 
+                       onClick={() => setShow(!show)}
+                   />
                 </Nav.Link>
                 </div>
 
@@ -44,6 +49,7 @@ export default function Header() {
            
           </Nav>
         </Navbar>
+            {show ? <Notify /> : null}
         </div>
     )
 }
