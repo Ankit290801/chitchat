@@ -12,10 +12,11 @@ export default function Dashboard() {
       <div>
         <Router>
         <Header />
+        {/* <Notify /> */}
           <Switch>
             <Route exact path="/home" component={Home} />
             <Route path="/public" component={Public} />
-            <Route path="/notify" component={Notify} />
+            {/* <Route path="/notify" component={Notify} /> */}
             <Route path="/update-profile" component={User} />
           </Switch>
         </Router>
