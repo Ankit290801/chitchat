@@ -1,9 +1,9 @@
 import {React,useState,useEffect} from 'react'
 import {Card,Form, FormGroup, Alert,Container,Navbar,NavbarBrand} from 'react-bootstrap'
 import { BrowserRouter as Router, Switch, useHistory,Link } from 'react-router-dom'
-import {Button} from 'reactstrap'
+import {Button, Input} from 'reactstrap'
 import '../App.css';
-import logo from '../img/back.jpg'
+import logo from '../img/back.jpeg'
 import './fontawesome/index'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -17,6 +17,7 @@ function Signup() {
     const [cpassword,useconfirmpassword]=useState("")
     const [message,setmessage]=useState("")
     const history=useHistory();
+    const [show,setShow] = useState(false)
 
         
 
@@ -54,7 +55,7 @@ function Signup() {
             <Container className=" d-flex align-items-center justify-content-center bg-white" style={{minHeight: "100vh",zIndex:'100'}}>
              <div className=" signupCard h-auto d-flex align-items-center justify-content-center bg-white"  style={{width: "900px",height:'500px'}}>
              <div className="w-100 d-none d-md-block back" style={{maxWidth: "500px",height:'570px',float:'left'}}>
-                {/* <img src={logo} className="back"/> */}
+                <img src={logo} className="back"/>
                 <div className="overlay">
                    <div  style={{top:'50%',position:'absolute',left:'50%',transform:'translate(-50%,-50%)'}}>
                    <h1 style={{color:"#fff", textAlign:'center',paddingTop:'30px'}}>chitChat</h1>
@@ -84,7 +85,11 @@ function Signup() {
 
                                 <FormGroup id="password">
                                     <Form.Label className="formname text-white">Password</Form.Label>
-                                    <Form.Control type="password" value={password} onChange={(e)=>usepassword(e.target.value)} ></Form.Control>
+                                {show ? <Form.Control type="text" value={password} onChange={(e)=>usepassword(e.target.value)} /> : <Form.Control type="password" value={password} onChange={(e)=>usepassword(e.target.value)} />}
+                                </FormGroup>
+
+                                <FormGroup className="ml-4 text-white">
+                                    <Input type = "checkbox" onClick={() => {setShow(!show)}}/>Show Password
                                 </FormGroup>
 
                                 <FormGroup id="password-confirm">

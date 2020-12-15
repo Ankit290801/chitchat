@@ -63,7 +63,7 @@ import {Link} from 'react-router-dom'
                     <div className="w-100 text-center mt-2"><Link to="/forgot-password">Forgot password? </Link> </div>
                 </Card.Body>
             </Card>
-            <div className="w-100">Don't have an Account? <Link to="/">Sign up</Link> </div>
+            <div className="w-100">Don't have an Account? <Link to="/signup">Sign up</Link> </div>
             </div>
             </Container>
         </div>
