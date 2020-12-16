@@ -55,7 +55,7 @@ function Signup() {
             <Container className=" d-flex align-items-center justify-content-center bg-white" style={{minHeight: "100vh",zIndex:'100'}}>
              <div className=" signupCard h-auto d-flex align-items-center justify-content-center bg-white"  style={{width: "900px",height:'500px'}}>
              <div className="w-100 d-none d-md-block back" style={{maxWidth: "500px",height:'570px',float:'left'}}>
-                <img src={logo} className="back"/>
+            
                 <div className="overlay">
                    <div  style={{top:'50%',position:'absolute',left:'50%',transform:'translate(-50%,-50%)'}}>
                    <h1 style={{color:"#fff", textAlign:'center',paddingTop:'30px'}}>chitChat</h1>
@@ -72,7 +72,7 @@ function Signup() {
                         <Card.Body >
                             <h2 className="text-center mb-4 text-white">Create an Account</h2>
                             <hr style={{height:'5px'}} className="formname text-white" />
-                            <Alert variant = "danger">{message}</Alert>
+                            <Alert variant = {message=='user success'?"success":"danger"} style={{display:message?'block':'none'}}>{message}</Alert>
                             <Form onSubmit={RegisterData}>
                                 <FormGroup id="name" className="form" >
                                     <Form.Label className="formname text-white">Name</Form.Label>

@@ -7,7 +7,7 @@ const verifyUser=require('../middleware/token')
 
 router.get('/posts',verifyUser,(req,res)=>{
     Posts.find()
-    .populate("postUser","id name")
+    .populate("postUser","id name image")
     .then(post=>{
         res.statusCode=200;
         return res.json({post});
@@ -36,7 +36,7 @@ router.post('/create',verifyUser,(req,res)=>{
 
 router.get("/mypost",verifyUser,(req,res)=>{
     Posts.find({postUser:req.user._id})
-    .populate("postUser","_id name")
+    .populate("postUser","_id name image")
     .then(posts=>{
         
         return res.json({posts});
@@ -46,6 +46,30 @@ router.get("/mypost",verifyUser,(req,res)=>{
     .catch(err=>{
         res.json({error:err})
     })
+})
+
+router.post('/comment',verifyUser,(req,res)=>{
+    const comment={
+        text:req.body.text,
+        postUser:req.user._id
+    }
+    
+    Posts.findByIdAndUpdate(req.body._id,{
+        $push:({comments:req.user})
+    },
+    {
+        new:true
+    })
+    .populate('comments.postUser','name _id')
+    .exec((err,res)=>{
+        if(err)
+        {
+            return res.status(422).json({error:err})
+        }else{
+            res.json(res)
+        }
+    })
+   
 })
 
 module.exports=router;

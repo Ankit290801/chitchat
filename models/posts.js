@@ -13,8 +13,15 @@ body:{
 image:{
     type:String,
     required:false,
-  // default:'no image'
+    default:'no image'
 },
+comments:[{
+    text:'string',
+    postUser:{
+        type:ObjectId,
+        ref:"Users"    
+    }
+}],
 postUser:{
     type:ObjectId,
     ref:"Users"

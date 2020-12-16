@@ -1,5 +1,5 @@
 import {React,useState , useEffect} from 'react'
-import {Card, Button, Container, Media ,Spinner} from 'react-bootstrap'
+import {Card, Button, Container, Media} from 'react-bootstrap'
 import './fontawesome/index'
 import Status from './Post'
 import logo from '../img/logo.jpeg'
@@ -28,13 +28,12 @@ return (
   </div>
 );
 }
-function Home() {
+function Mypost() {
     
   const [post,setposts]=useState([]);
-  const [loader,setloader]=useState(0)
+
   useEffect(()=>{
-    setloader(1);
-    fetch("http://localhost:5001/posts",{
+    fetch("http://localhost:5001/mypost",{
             method:"get",
             headers:{
                 'Authorization':'Bearer '+ localStorage.getItem('jwt') 
@@ -42,23 +41,16 @@ function Home() {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data.post);
-            setloader(0);
-            setposts(data.post);
+            console.log(data.posts);
+            setposts(data.posts);
         })
   },[])
   
   return (
-        <div style={{backgroundColor:"#ccc"}}>
-           <Status />
-           <div style={{display:loader==1?'block':'none',position:'absolute',zIndex:'100',background:'red',width:'100%',opacity:'0.5'}}>
-           <div style={{position:'absolute',top:'50%',left:'50%',transform:'translate(50%)'}}>
-           <Spinner animation="border" role="status" />
-            </div>
-           </div>
+        <div >
            
             <Container>
-            
+          
           {
             post.map(data=>(
              // console.log(data);
@@ -75,4 +67,4 @@ function Home() {
     )
 }
 
-export default Home;
+export default Mypost;

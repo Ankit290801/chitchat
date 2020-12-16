@@ -11,7 +11,24 @@ router.get('/dashboard',verifyUser,(req,res)=>{
 
     //const {email , password}=req.body;
     console.log(req.user);
-    res.send("hello there!")
+    return res.status(200).json({user:req.user});
+
+})
+
+router.put('/updatepic',verifyUser,(req,res)=>{
+
+    image=req.body;
+    console.log(image);
+    User.findByIdAndUpdate(req.user._id,{image:req.body.image}, function(err, result){
+
+    console.log(req.user)
+    if(err){
+        res.send(err)
+    }
+    else{
+        res.send(req.user)
+    }})
+
 
 })
 

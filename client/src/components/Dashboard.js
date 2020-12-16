@@ -9,7 +9,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 export default function Dashboard() {
   
   return (
-      <div>
+      <div style={{backgroundColor:"#ccc",height:'100vh'}}>
         <Router>
         <Header />
         {/* <Notify /> */}

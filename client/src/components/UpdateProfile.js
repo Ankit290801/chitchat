@@ -2,11 +2,14 @@ import React from 'react'
 import {Card,Form, FormGroup, Alert , Container,Navbar,NavbarBrand} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import {Button} from 'reactstrap'
-
+import Myprofile from './Myprofile'
+import Mypost from './Mypost'
 export default function UpdateProfile() {
     
     return (
-        <div>
+        <div style={{backgroundColor:"#ccc"}}>
+            <Myprofile />
+            <Mypost />
              <Container className="d-flex align-items-center justify-content-center" style={{minHeight: "100vh"}}>
              <div className="w-100 m-auto" style={{maxWidth: "400px"}}>
             <Card>

@@ -78,7 +78,7 @@ import {Card, Button, Container} from 'react-bootstrap'
         <div>
 
          <Container>
-        <Card className="container my-3" style={{ width: '70%',background:'#fff',marginTop: '20px' }}>
+        <Card className="container my-3" style={{ width: '70%',background:'#fff',marginTop: '20px',borderRadius:'20px' }}>
         <Card.Body>
     <textarea type="text" value={body} onChange={(e)=>getBody(e.target.value)} placeholder="write about something" style={{width:'100%',height:'100px'}}></textarea> 
     

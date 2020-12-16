@@ -11,29 +11,29 @@ export default function Header() {
     console.log(show)
     return (
         <div>
-            <Navbar color="primary" style={{background:"#dff9fb"}}light>
-                <Navbar.Brand as={NavLink} to="/">chitchat </Navbar.Brand>
+            <Navbar color="primary" style={{background:"#333",color:'#fff',fontWeight:'lighter',textTransform:'uppercase'}}light>
+                <Navbar.Brand as={NavLink} to="/" style={{color:'#fff'}}>chitchat </Navbar.Brand>
             </Navbar>
 
-            <Navbar style={{background:"#fff"}}light>
+            <Navbar style={{background:"#333"}}light>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Nav className="container">
             {/* "NavLink" here since "active" class styling is needed */}
            
                 <div>
                 <Nav.Link as={NavLink} to="/home">
-                   <FontAwesomeIcon  className="icon" icon="home" style={{height:'40px',width:'40px',color:'red'}} />
+                   <FontAwesomeIcon  className="icon" icon="home" style={{height:'30px',width:'30px',color:'red'}} />
                 </Nav.Link>
                 </div>
-                <div>
+                <div style={{borderBottom:'4px solid red'}}>
                 <Nav.Link as={NavLink} to="/public">
-                   <FontAwesomeIcon  className="icon" icon="bookmark" style={{height:'40px',width:'40px',color:'red'}} />
+                   <FontAwesomeIcon  className="icon" icon="bookmark" style={{height:'30px',width:'30px',color:'red'}} />
                 </Nav.Link>
                 </div>
                 
                 <div>
                 <Nav.Link>
-                   <FontAwesomeIcon  className="icon" icon="bell" style={{height:'40px',width:'40px',color:'red'}} 
+                   <FontAwesomeIcon  className="icon" icon="bell" style={{height:'30px',width:'30px',color:'red'}} 
                        onClick={() => setShow(!show)}
                    />
                 </Nav.Link>
@@ -41,7 +41,7 @@ export default function Header() {
 
                 <div>
                 <Nav.Link as={NavLink} to="/update-profile">
-                   <FontAwesomeIcon  className="icon" icon="user" style={{height:'40px',width:'40px',color:'red'}} />
+                   <FontAwesomeIcon  className="icon" icon="user" style={{height:'30px',width:'30px',color:'red'}} />
                 </Nav.Link>
                 </div>
                
