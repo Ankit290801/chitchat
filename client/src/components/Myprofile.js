@@ -89,7 +89,7 @@ function Myprofile() {
         <div>
         </div>
         </div>
-        <h1 style={{textAlign:'center'}}>{user.name}</h1>
+        <h1 style={{textAlign:'center',textTransform:'capitalize',fontWeight:'bolder',color:'#0006'}} >{user.name}</h1>
         </div>
     )
 }
