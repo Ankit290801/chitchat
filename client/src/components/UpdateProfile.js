@@ -1,13 +1,23 @@
 import React from 'react'
-import {Card,Form, FormGroup, Alert , Container,Navbar,NavbarBrand} from 'react-bootstrap'
+import {Card,Form, FormGroup, Alert , Container,Navbar,NavbarBrand,Tab,Tabs} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import {Button} from 'reactstrap'
-
+import Myprofile from './Myprofile'
+import Mypost from './Mypost'
 export default function UpdateProfile() {
     
     return (
-        <div>
-             <Container className="d-flex align-items-center justify-content-center" style={{minHeight: "100vh"}}>
+        <div style={{backgroundColor:"#ccc",height:'100%'}}>
+            <Myprofile />
+           
+           <div  className="container m-auto" style={{}}>
+               <hr />
+           <Tabs defaultActiveKey="My Posts" id="uncontrolled-tab-example">
+            <Tab eventKey="home" title="My posts">
+            <Mypost />
+            </Tab>
+            <Tab eventKey="Update Profile" title="Upadate Profile">
+            <Container className="d-flex align-items-center justify-content-center" style={{minHeight: "100vh"}}>
              <div className="w-100 m-auto" style={{maxWidth: "400px"}}>
             <Card>
                 <Card.Body>
@@ -38,6 +48,14 @@ export default function UpdateProfile() {
             <div className="w-100 text-center"><Link to="/">Cancel</Link></div>
             </div>
             </Container>
+            </Tab>
+            <Tab eventKey="Profile Info" title="Profile Info">
+            still to be added , stay tuned
+            </Tab>
+            </Tabs>
+           </div>
+
+            
         </div>
     )
 }

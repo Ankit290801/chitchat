@@ -12,6 +12,7 @@ Port=process.env.PORT || 5001;
 const userAuth=require('./routes/userAuth');
 const login=require('./routes/login');
 const postRoute=require('./routes/posts');
+const updateRoute=require('./routes/update');
 
 mongoose.connect(MONGO_URI,{
     useNewUrlParser: true,
@@ -34,7 +35,7 @@ app.use(bodyParser.json());
 app.use('/signup',userAuth);
 app.use(login);
 app.use(postRoute);
-
+//app.use(updateRoute);
 
 app.listen(Port,()=>{
     console.log("server connected");
