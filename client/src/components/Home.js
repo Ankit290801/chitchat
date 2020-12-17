@@ -4,9 +4,11 @@ import './fontawesome/index'
 import Status from './Post'
 import logo from '../img/logo.jpeg'
 import userpicdemo from '../img/userpicdemo.png'
+import Cardfooter from './Cardfooter'
 
-function Posts({data}){
-return (
+function Posts({data,key}){
+//console.log(data);
+  return (
   <div>
     <Card className="container mt-4 mb-4" style={{ width: '580px', borderRadius: '20px'}}>
       <Card.Body>
@@ -22,7 +24,7 @@ return (
      <Card.Text>
        {data.body}
      </Card.Text>
-     <Button variant="primary">Go somewhere</Button>
+    <Cardfooter exodus={data._id} dataset={data.comments}/>
    </Card.Body>
  </Card>
   </div>
@@ -33,7 +35,7 @@ function Home() {
   const [post,setposts]=useState([]);
   const [loader,setloader]=useState(0)
   useEffect(()=>{
-    setloader(1);
+    setloader(0);
     fetch("http://localhost:5001/posts",{
             method:"get",
             headers:{
@@ -46,7 +48,7 @@ function Home() {
             setloader(0);
             setposts(data.post);
         })
-  },[])
+  },[post])
   
   return (
         <div style={{backgroundColor:"#ccc"}}>
@@ -61,7 +63,7 @@ function Home() {
             
           {
             post.map(data=>(
-             // console.log(data);
+              
               <Posts data={data} key={data._id} />
             ))
           }

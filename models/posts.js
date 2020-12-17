@@ -18,8 +18,8 @@ image:{
 comments:[{
     text:'string',
     postUser:{
-        type:ObjectId,
-        ref:"Users"    
+        // 
+        type:'object'  
     }
 }],
 postUser:{

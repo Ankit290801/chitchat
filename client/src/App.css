@@ -65,3 +65,12 @@ backdrop-filter: blur(7px);
     box-shadow: 250px 250px 250px #0007 inset;
     border-radius: 0px 0px 30px 30px;   
 }
+.openDialog
+{
+position: absolute;
+z-index: 200;    
+height:'200px';
+width:'150px';
+background-color: '#fff';
+bottom: 50%;
+}

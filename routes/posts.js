@@ -51,25 +51,25 @@ router.get("/mypost",verifyUser,(req,res)=>{
 router.post('/comment',verifyUser,(req,res)=>{
     const comment={
         text:req.body.text,
-        postUser:req.user._id
+        postUser:req.user
     }
     
     Posts.findByIdAndUpdate(req.body._id,{
-        $push:({comments:req.user})
+        $push:{comments:comment}
     },
     {
         new:true
     })
-    .populate('comments.postUser','name _id')
-    .exec((err,res)=>{
-        if(err)
-        {
-            return res.status(422).json({error:err})
-        }else{
-            res.json(res)
+    //.populate("comments.postUser","_id name")
+    .then((err, result)=>{
+
+        console.log(result)
+        if(err){
+            res.send(err)
         }
+        else{
+            res.json({res:result})
+        }})
     })
-   
-})
 
 module.exports=router;

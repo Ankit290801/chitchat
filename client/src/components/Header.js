@@ -11,11 +11,11 @@ export default function Header() {
     console.log(show)
     return (
         <div>
-            <Navbar color="primary" style={{background:"#333",color:'#fff',fontWeight:'lighter',textTransform:'uppercase'}}light>
+            <Navbar sticky='top' color="primary" style={{background:"#333",color:'#fff',fontWeight:'lighter',textTransform:'uppercase'}}light>
                 <Navbar.Brand as={NavLink} to="/" style={{color:'#fff'}}>chitchat </Navbar.Brand>
             </Navbar>
 
-            <Navbar style={{background:"#333"}}light>
+            <Navbar style={{background:"#333"}} sticky='top' light>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Nav className="container">
             {/* "NavLink" here since "active" class styling is needed */}
