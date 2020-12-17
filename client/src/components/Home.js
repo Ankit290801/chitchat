@@ -48,7 +48,7 @@ function Home() {
             setloader(0);
             setposts(data.post);
         })
-  },[post])
+  },[])
   
   return (
         <div style={{backgroundColor:"#ccc"}}>
