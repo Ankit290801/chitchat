@@ -20,18 +20,18 @@ export default function Header() {
           <Nav className="container">
             {/* "NavLink" here since "active" class styling is needed */}
            
-                <div>
+                <div className="header-icon">
                 <Nav.Link as={NavLink} to="/home">
                    <FontAwesomeIcon  className="icon" icon="home" style={{height:'30px',width:'30px',color:'red'}} />
                 </Nav.Link>
                 </div>
-                <div style={{borderBottom:'4px solid red'}}>
+                <div className="header-icon">
                 <Nav.Link as={NavLink} to="/public">
                    <FontAwesomeIcon  className="icon" icon="bookmark" style={{height:'30px',width:'30px',color:'red'}} />
                 </Nav.Link>
                 </div>
                 
-                <div>
+                <div className="header-icon">
                 <Nav.Link>
                    <FontAwesomeIcon  className="icon" icon="bell" style={{height:'30px',width:'30px',color:'red'}} 
                        onClick={() => setShow(!show)}
@@ -39,7 +39,7 @@ export default function Header() {
                 </Nav.Link>
                 </div>
 
-                <div>
+                <div className="header-icon">
                 <Nav.Link as={NavLink} to="/update-profile">
                    <FontAwesomeIcon  className="icon" icon="user" style={{height:'30px',width:'30px',color:'red'}} />
                 </Nav.Link>

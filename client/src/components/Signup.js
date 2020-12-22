@@ -99,6 +99,7 @@ function Signup() {
                                 <Button className="w-100" type="submit" color="primary" >Submit</Button>
                             </Form>
                 <div className="w-100 text-white">Already have an Account? <Link to="/login">Login</Link></div>
+                <Link to="/info"><Button color="danger">Next</Button></Link>
                 </Card.Body>
             </Card>
             </div>

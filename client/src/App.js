@@ -7,6 +7,7 @@ import Dashboard from './components/Dashboard'
 import UpdateProfile from './components/UpdateProfile'
 import ForgotPassword from './components/ForgotPassword'
 import Homepage from './components/Homepage'
+import Info from './components/Info'
 
 import {BrowserRouter as   Router, Switch, Route , useHistory} from 'react-router-dom' 
 import PrivateRoute from './components/PrivateRoute'
@@ -28,6 +29,7 @@ function App() {
                 <PrivateRoute path="/update-profile" component={UpdateProfile} />               
                 <Route path="/signup" component={Signup} />
                 <Route path="/login" component={Login} />
+                <Route path="/info" component={Info} />
                 <PrivateRoute path="/forgot-password" component={ForgotPassword} />
                 <PrivateRoute Path="/dashboard" component={Dashboard} />
               </Switch>
