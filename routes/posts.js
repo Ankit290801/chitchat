@@ -53,7 +53,7 @@ router.post('/comment',verifyUser,(req,res)=>{
         text:req.body.text,
         postUser:req.user
     }
-    
+    console.log(req.body._id);
     Posts.findByIdAndUpdate(req.body._id,{
         $push:{comments:comment}
     },
@@ -71,5 +71,35 @@ router.post('/comment',verifyUser,(req,res)=>{
             res.json({res:result})
         }})
     })
+
+    router.post('/like',verifyUser,(req,res)=>{
+        const likeuser={
+            reaction:req.body.reaction,
+            postUser:req.user
+        }
+        
+        Posts.findByIdAndUpdate(req.body._id,
+        {    
+            // $pull:{likes:{postUser:req.user}}
+            //$push:{likes:likeuser}
+            $set:{likes:likeuser}
+            
+        },
+        {
+            new:true
+        })
+        //.populate("comments.postUser","_id name")
+        .then((err, result)=>{
+    
+            console.log(result)
+            if(err){
+                res.send(err)
+            }
+            else{
+                res.json({res:result})
+            }})
+        })
+
+       
 
 module.exports=router;

@@ -4,6 +4,7 @@ import Home from './Home'
 import Public from './Public'
 import Notify from './Notify'
 import User from './UpdateProfile'
+import Users from './Userprofile'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 export default function Dashboard() {
@@ -16,7 +17,7 @@ export default function Dashboard() {
           <Switch>
             <Route exact path="/home" component={Home} />
             <Route path="/public" component={Public} />
-            {/* <Route path="/notify" component={Notify} /> */}
+            <Route path="/user/:id" component={Users} /> 
             <Route path="/update-profile" component={User} />
           </Switch>
         </Router>

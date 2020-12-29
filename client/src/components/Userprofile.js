@@ -1,21 +1,22 @@
-import {React,useState , useEffect} from 'react'
-import {Card, Button, Container, Media,Dropdown} from 'react-bootstrap'
-import './fontawesome/index'
-import Status from './Post'
-import logo from '../img/logo.jpeg'
-import userpicdemo from '../img/userpicdemo.png'
+import {React,useState,useEffect} from 'react'
+import "./fontawesome/index"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import userpicdemo from '../img/userpicdemo.png'
+import {useParams} from 'react-router-dom'
+import '../App.css'
+import {Card, Button, Container, Media ,Spinner,Dropdown} from 'react-bootstrap'
 import Cardfooter from './Cardfooter'
 import '../App.css'
 import {Link} from 'react-router-dom'
+
 
 function Posts({data,key}){
   console.log(data);
   const [open,setOpen]=useState(false);  
   
   return (
-    <div className="">
-      <Card className=" mt-4 mb-4 shadow-lg mb-3" id="cardish">
+    <div className="w-100">
+      <Card className=" mt-4 mb-4 shadow-lg" id="cardish">
         <Card.Body>
           <Card.Title>
           <Media left href="#" className="d-flex">
@@ -52,12 +53,20 @@ function Posts({data,key}){
     </div>
   );
   }
-function Mypost() {
-    
-  const [post,setposts]=useState([]);
 
-  useEffect(()=>{
-    fetch("http://localhost:5001/mypost",{
+function Userprofile() {
+    
+    const [post,setposts]=useState([]);
+    const [media,getMedia]=useState("");
+    const [url,setimageurl]=useState("");
+    const [user,setuser]=useState({});
+    
+    const {id}=useParams();
+    console.log(id);
+    useEffect(() => {
+    
+        //console.log(media);
+        fetch(`http://localhost:5001/user/${id}`,{
             method:"get",
             headers:{
                 'Authorization':'Bearer '+ localStorage.getItem('jwt') 
@@ -65,31 +74,47 @@ function Mypost() {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data.posts);
-            setposts(data.posts);
+            console.log(data);
+        setposts(data.posts);
+        setuser(data.res);
+        setimageurl(data.res.image);
         })
-  },[])
+        .catch(err=>{
+            console.log(err);
+        })
+    }, [])
+
+   
+    return (
+      <div className="bg-white" style={{}}>
+      <div className=" m-auto d-flex justify-content-center backPic" >
+  <div className="ml-5" id="pic" >
+  <img className="mr-3 mb-5"  src={ url ?url:userpicdemo} alt="User Pic" style={{boxSizing:'border-box',width:'100%',height:'100%',overflow:'hidden',borderRadius:'50%'}}/>
+  </div>
+  <div>
+  </div>
+  </div>
+  <h1 id="titlex"  >{user.name}</h1>
   
-  return (
-        <div style={{}}>
-           
-            <>
-          
-            {
-            post.map(data=>(
-              
-              <Posts data={data} key={data._id} />
-            ))
-          }
-          
-          
-          
-          
-         
-             </>
-         </div>
-       
-    )
+  <div id="titlex" style={{width:'320px'}} className="container d-flex justify-content-between">
+  <div>
+   <Button style={{width:'200px'}} className="shadow-lg ">message</Button>
+   </div>
+   <div>
+   <Button style={{width:'70px',outline:'none',border:'1px solid #ccc',background:'#fff'}} className="shadow-lg "  ><FontAwesomeIcon icon="user-plus" className=" font-weight-light text-black-50" style={{color:''}}/></Button>
+   </div>
+  </div>
+  <div id="profile" >
+  {
+              post.map(data=>(
+                
+                <Posts data={data} key={data._id} />
+              ))
+            }
+        </div>   
+  </div>
+  )
 }
 
-export default Mypost;
+
+export default  Userprofile;
