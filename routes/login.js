@@ -6,6 +6,8 @@ const jwt=require('jsonwebtoken');
 const bcrypt=require('bcryptjs');
 const {JWT_SECRET}=require('../config');
 const verifyUser=require('../middleware/token')
+const Posts=mongoose.model('Posts');
+
 
 router.get('/dashboard',verifyUser,(req,res)=>{
 
@@ -32,6 +34,26 @@ router.put('/updatepic',verifyUser,(req,res)=>{
 
 })
 
+
+// user search
+
+router.get('/user/:id',verifyUser,(req,res)=>{
+  console.log(req.params.id);
+    User.findOne({_id:req.params.id})
+  .select("-password")
+  .then(response=>{
+     
+        Posts.find({postUser:req.params.id})
+        .populate("postUser","_id name image")
+        .then(posts=>{
+            
+            return res.json({res:response,posts:posts})
+        })
+    })
+  .catch(err=>{
+      return res.json({err:err})
+  })          
+})
 router.post('/login',(req,res)=>{
 
     const {email , password}=req.body;

@@ -17,8 +17,15 @@ image:{
 },
 comments:[{
     text:'string',
-    postUser:{
-        // 
+    postUser:{ 
+        type:'object'  
+    }
+}],
+likes:[{
+    reaction:{
+        type:'object'
+    },
+    postUser:{ 
         type:'object'  
     }
 }],

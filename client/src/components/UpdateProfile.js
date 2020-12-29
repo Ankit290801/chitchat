@@ -4,13 +4,14 @@ import { Link } from 'react-router-dom'
 import {Button} from 'reactstrap'
 import Myprofile from './Myprofile'
 import Mypost from './Mypost'
+import '../App.css'
 export default function UpdateProfile() {
     
     return (
-        <div style={{backgroundColor:"#ccc",height:'100%'}}>
+        <div style={{backgroundColor:"#ccc",height:'200vh'}}>
             <Myprofile />
            
-           <div  className="container m-auto" style={{}}>
+           <div  className="m-auto" id="postuser" style={{}}>
                <hr />
            <Tabs defaultActiveKey="My Posts" id="uncontrolled-tab-example">
             <Tab eventKey="home" title="My posts">

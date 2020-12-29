@@ -20,7 +20,7 @@ function App() {
   return (
        //<div className="d-flex align-items-center justify-content-center" style={{minHeight: "100vh"}}>
        <div>
-        <div className="w-100" style={{maxWidth: "100%"}}>
+        <div className="" style={{maxWidth: "100%"}}>
                 
           <Router>
         
